@@ -14,6 +14,11 @@ import "core:math"
 OPERATORS :: "*/+-"
 ALPHABET :: "abcdefghijklmnopqrstuvwxyz"
 
+Token :: struct {
+    type : rune,
+    value : [8]byte
+}
+
 main :: proc() {
 
     // when ODIN_DEBUG {
