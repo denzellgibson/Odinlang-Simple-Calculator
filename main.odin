@@ -15,8 +15,8 @@ OPERATORS :: "*/+-"
 ALPHABET :: "abcdefghijklmnopqrstuvwxyz"
 
 Token :: struct {
-    type : rune,
-    value : [8]byte
+    value : [8]byte,
+    type : rune
 }
 
 main :: proc() {
@@ -104,7 +104,9 @@ parse_state :: proc(str : string) -> (string, [dynamic]string) {
             append(&expression, strings.cut(str, i, 1))
         }
     }
-    append(&expression, strings.cut(str, len(str)-1, 1))
+    number = strings.join(numarr[:], "")
+    clear(&numarr)
+    append(&expression, number)
     return "EVALUATE", expression
 }
 
